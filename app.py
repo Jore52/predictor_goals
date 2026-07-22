@@ -5,11 +5,13 @@ import json
 import re
 from threading import Thread
 from flask import Flask, request, jsonify
+from flask_cors import CORS  # <--- IMPORTAMOS CORS
 import firebase_admin
 from firebase_admin import credentials, firestore
 from scipy.stats import poisson
 
 app = Flask(__name__)
+CORS(app) # <--- ESTA LÍNEA MÁGICA PERMITE QUE OLIMPO TE ENVÍE DATOS
 
 # =====================================================================
 # 1. CONFIGURACIÓN DE FIREBASE
